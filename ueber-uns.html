@@ -8,25 +8,26 @@
 </head>
 <body>
 <div class="contact-sidepanel closed" id="contactPanel">
-  <span class="close-contact" id="closeContact">&times;</span>
+  <span class="close-contact" id="closeContact" aria-label="Kontaktfenster schließen" tabindex="0">&times;</span>
   <h3>Kontakt BMX Projekt</h3>
   <p><strong>E-Mail:</strong> kontakt@bmxprojekt.de</p>
   <p><strong>Telefon:</strong> 01234 / 567890</p>
   <p><strong>Adresse:</strong> Musterstraße 1, 12345 BMX-Stadt</p>
 </div>
-<button id="openContact" class="open-contact-btn show">&#9993;</button>
+<button id="openContact" class="open-contact-btn show" aria-label="Kontaktfenster öffnen">&#9993;</button>
 
-<header>
+<header role="banner">
   <div class="logo">
     <span>BMX Projekt</span>
   </div>
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="#">Sportarten</a>
-    <a href="ueber-uns.html">Über uns</a>
-    <a href="#">Mitglied werden</a>
-    <a href="#">Kontakt</a>
+  <nav role="navigation" aria-label="Hauptnavigation">
+    <a href="index.html" tabindex="0">Start</a>
+    <a href="#" tabindex="0">Sportarten</a>
+    <a href="ueber-uns.html" tabindex="0">Über uns</a>
+    <a href="#" tabindex="0">Mitglied werden</a>
+    <a href="#" tabindex="0">Kontakt</a>
   </nav>
+  <button class="dark-btn" id="toggleMode" aria-label="Dark Mode umschalten">☾</button>
 </header>
 <main>
   <div class="about-section">
@@ -102,7 +103,13 @@
 <footer>
   © 2024 BMX Projekt · Datenschutzerklärung · Impressum
 </footer>
+<div class="accessbar" aria-label="Barrierefreiheits-Einstellungen">
+  <button class="access-btn" id="fontDefault" aria-label="Standard-Schriftgröße">A</button>
+  <button class="access-btn" id="fontLarge" aria-label="Große Schrift">A+</button>
+  <button class="access-btn" id="fontXLarge" aria-label="Sehr große Schrift">A++</button>
+</div>
 <script>
+  // Kontaktpanel
   document.getElementById('closeContact').onclick = function() {
     document.getElementById('contactPanel').classList.add('closed');
     document.getElementById('openContact').classList.add('show');
@@ -111,17 +118,29 @@
     document.getElementById('contactPanel').classList.remove('closed');
     document.getElementById('openContact').classList.remove('show');
   };
-
+  // Toggle Darkmode
+  document.getElementById('toggleMode').onclick = function() {
+    document.body.classList.toggle('dark-mode');
+  };
+  // Barrierefrei (Fontgröße)
+  document.getElementById('fontDefault').onclick = function() {
+    document.body.classList.remove('access-large','access-xlarge');
+  };
+  document.getElementById('fontLarge').onclick = function() {
+    document.body.classList.add('access-large');
+    document.body.classList.remove('access-xlarge');
+  };
+  document.getElementById('fontXLarge').onclick = function() {
+    document.body.classList.remove('access-large');
+    document.body.classList.add('access-xlarge');
+  };
   // Scroll-Animation: Cards werden beim Scrollen sichtbar
   function revealCards() {
     const cards = document.querySelectorAll('.card');
     const triggerBottom = window.innerHeight * 0.92;
-
     cards.forEach(card => {
       const cardTop = card.getBoundingClientRect().top;
-      if(cardTop < triggerBottom) {
-        card.classList.add('visible');
-      }
+      if(cardTop < triggerBottom) card.classList.add('visible');
     });
   }
   window.addEventListener('scroll', revealCards);

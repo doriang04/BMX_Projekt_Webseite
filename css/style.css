@@ -1,13 +1,14 @@
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #efefef;
   color: #222;
 }
-/* Sticky Header */
+body.dark-mode {
+  background: #181a1b;
+  color: #eaeaea;
+}
 header {
   background: #fff;
   padding: 0 5vw;
@@ -19,6 +20,10 @@ header {
   left: 0;
   z-index: 200;
 }
+body.dark-mode header {
+  background: #232323;
+  border-bottom: 3px solid #dcc600;
+}
 .logo {
   font-weight: bold;
   font-size: 1.4em;
@@ -28,13 +33,22 @@ header {
 nav {
   margin-left: auto;
 }
-nav a {
+nav[role="navigation"] a {
   text-decoration: none;
   color: #FFD200;
   font-weight: bold;
   margin-left: 2vw;
   font-size: 1em;
   transition: color 0.18s;
+  outline: none;
+}
+body.dark-mode nav a {
+  color: #dcc600;
+}
+nav a:focus, .about-info-btn:focus, .open-contact-btn:focus, .close-contact:focus, .dark-btn:focus, .access-btn:focus {
+  outline: 2px solid #FFD200;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 2px #fff,0 0 0 4px #FFD20050;
 }
 nav a:hover { color: #ad9604; }
 .hero {
@@ -46,13 +60,15 @@ nav a:hover { color: #ad9604; }
   justify-content: center;
   overflow: hidden;
 }
+body.dark-mode .hero {
+  background: #181a1b;
+}
 .hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   opacity: 0.67;
 }
 .hero-content {
@@ -81,6 +97,36 @@ nav a:hover { color: #ad9604; }
   cursor: pointer;
   text-decoration: none;
 }
+body.dark-mode .hero-content .cta {
+  background: #dcc600;
+  color: #181a1b;
+}
+.dark-btn, .access-btn {
+  background: #FFD200;
+  color: #222;
+  border-radius: 3px;
+  border: none;
+  font-size: 1.13em;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 7px 22px;
+  margin-left: 1vw;
+  transition: background 0.2s;
+}
+body.dark-mode .dark-btn, body.dark-mode .access-btn {
+  background: #dcc600;
+  color: #1a1a1a;
+}
+.accessbar {
+  position: fixed;
+  bottom: 10px;
+  right: 14px;
+  z-index: 999;
+  display: flex;
+  gap: 16px;
+}
+.access-btn { font-size: 1.08em; }
+
 main {
   display: flex;
   flex-wrap: wrap;
@@ -88,6 +134,7 @@ main {
   gap: 2vw;
   background: #fff;
 }
+body.dark-mode main { background: #202124; }
 .box {
   background: #222;
   color: #fff;
@@ -96,11 +143,16 @@ main {
   min-width: 260px;
   padding: 1.4em;
 }
+body.dark-mode .box {
+  background: #1a1a1a;
+  color: #FFD200;
+}
 .box h2 {
   color: #FFD200;
   margin-top: 0;
   font-size: 1.3em;
 }
+body.dark-mode .box h2 { color: #dcc600; }
 .box ul {
   padding-left: 18px;
   margin: 0.7em 0 0 0;
@@ -134,24 +186,35 @@ main {
   box-shadow: 0 2px 24px rgba(0,0,0,0.07);
   padding: 2em 2.5em;
 }
+body.dark-mode .about-section {
+  background: #232323;
+  color: #FFD200;
+}
 .card {
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 14px rgba(0,0,0,0.09);
   margin: 1.1em 0;
   padding: 1.7em 2em 1.2em 2em;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, background 0.2s, color 0.2s;
   position: relative;
+  opacity: 0;
+  transform: translateY(60px);
 }
-.card:hover {
-  box-shadow: 0 4px 22px rgba(0,0,0,0.15);
+body.dark-mode .card {
+  background: #1a1b1c;
+  color: #FFD200;
+}
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 .card h2 {
   color: #FFD200;
   margin-top: 0;
   font-size: 1.22em;
 }
-/* Bildfeld in Card */
+body.dark-mode .card h2 { color: #dcc600; }
 .card-image {
   width: 100%;
   max-width: 310px;
@@ -159,9 +222,10 @@ main {
   object-fit: cover;
   border-radius: 6px;
   margin-bottom: 1em;
-  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.09);
 }
 .card-idee { border-left: 7px solid #FFD200; }
+body.dark-mode .card-idee { border-left: 7px solid #dcc600; }
 .card-motto blockquote {
   background: #FFD20012;
   border-left: 5px solid #FFD200;
@@ -171,6 +235,11 @@ main {
   border-radius:4px;
   color: #333;
   font-style: italic;
+}
+body.dark-mode .card-motto blockquote {
+  background: #dcc60015;
+  border-left: 5px solid #dcc600;
+  color: #181a1b;
 }
 .card-durchstarter .info-btn-area { margin-top: 1.2em;}
 .flyer-hinweis {
@@ -182,6 +251,10 @@ main {
   font-weight: bold;
   margin-top: 6px;
   font-size:0.97em;
+}
+body.dark-mode .flyer-hinweis {
+  background: #dcc60012;
+  color: #dcc600;
 }
 .info-btn-area {
   display: flex;
@@ -198,7 +271,11 @@ main {
   border: none;
   font-size: 1em;
   box-shadow: 1px 2px 8px rgba(0,0,0,0.07);
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
+}
+body.dark-mode .about-info-btn {
+  background: #dcc600;
+  color: #181a1b;
 }
 .about-info-btn:hover {
   background: #e6c801;
@@ -209,6 +286,10 @@ footer {
   text-align: center;
   padding: 1em 0;
   font-size: 0.95em;
+}
+body.dark-mode footer {
+  background: #dcc600;
+  color: #181a1b;
 }
 /* Kontakt-Seitenpanel rechts */
 .contact-sidepanel {
@@ -223,13 +304,18 @@ footer {
   box-shadow: -2px 0 10px rgba(40,40,40,0.09);
   padding: 2em 1em 1em 1.2em;
   z-index: 100;
-  transition: right 0.4s;
+  transition: right 0.4s, background 0.2s, color 0.2s;
+}
+body.dark-mode .contact-sidepanel {
+  background: #1a1a1a;
+  color: #FFD200;
 }
 .contact-sidepanel h3 {
   margin-top: 0;
   color: #FFD200;
   font-size: 1.25em;
 }
+body.dark-mode .contact-sidepanel h3 { color: #dcc600; }
 .contact-sidepanel p {
   margin: 0.8em 0;
   font-size: 1em;
@@ -245,6 +331,7 @@ footer {
   background: none;
   border: none;
 }
+body.dark-mode .contact-sidepanel .close-contact { color: #dcc600; }
 .contact-sidepanel.closed {
   right: -280px;
   transition: right 0.4s;
@@ -265,18 +352,20 @@ footer {
   cursor: pointer;
   display: none;
 }
+body.dark-mode .open-contact-btn { background: #dcc600; color: #181a1b;}
 .open-contact-btn.show {
   display: block;
 }
-/* Scroll Animation für Cards (optional, nur für JS-Animationen) */
-.card {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 0.45s, transform 0.6s;
+/* Barrierefreiheit: Fokusringe & Schriftgröße */
+*:focus {
+  outline: 2px solid #FFD200 !important;
+  outline-offset: 2px;
 }
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
+body.access-large {
+  font-size: 1.24em;
+}
+body.access-xlarge {
+  font-size: 1.36em;
 }
 /* Responsiv */
 @media (max-width: 900px) {
