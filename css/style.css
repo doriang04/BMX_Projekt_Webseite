@@ -29,6 +29,14 @@ body.dark-mode header {
   font-size: 1.4em;
   letter-spacing: 2px;
   padding: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
 }
 nav {
   margin-left: auto;
@@ -284,12 +292,32 @@ footer {
   background: #FFD200;
   color: #222;
   text-align: center;
-  padding: 1em 0;
+  padding: 1.2em 0;
   font-size: 0.95em;
+  position: relative;
 }
 body.dark-mode footer {
   background: #dcc600;
   color: #181a1b;
+}
+.social-links {
+  position: absolute;
+  left: 2em;
+  bottom: 1.2em;
+  display: flex;
+  gap: 1.2em;
+}
+.social-links a {
+  color: #222;
+  font-size: 1.8em;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+body.dark-mode .social-links a {
+  color: #181a1b;
+}
+.social-links a:hover {
+  transform: scale(1.15);
 }
 /* Kontakt-Seitenpanel rechts */
 .contact-sidepanel {
@@ -372,6 +400,11 @@ body.access-xlarge {
   .about-section { padding: 1em 0.5em; }
   .card { padding: 1.1em 1em 0.9em 1em; }
   .card-image { max-width: 100%; }
+  .social-links {
+    position: static;
+    justify-content: center;
+    margin-bottom: 0.8em;
+  }
 }
 @media (max-width: 800px) {
   main {
@@ -384,5 +417,8 @@ body.access-xlarge {
   }
   .about-section {
     padding: 1.1em 1em;
+  }
+  .logo-img {
+    height: 40px;
   }
 }
