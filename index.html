@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMX Projekt</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Kontakt-Seitenpanel zu Beginn geschlossen -->
+<div class="contact-sidepanel closed" id="contactPanel">
+  <span class="close-contact" id="closeContact">&times;</span>
+  <h3>Kontakt BMX Projekt</h3>
+  <p><strong>E-Mail:</strong> kontakt@bmxprojekt.de</p>
+  <p><strong>Telefon:</strong> 01234 / 567890</p>
+  <p><strong>Adresse:</strong> Musterstraße 1, 12345 BMX-Stadt</p>
+</div>
+<button id="openContact" class="open-contact-btn show">&#9993;</button>
+
+<header>
+  <div class="logo">
+    <span>BMX Projekt</span>
+  </div>
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="#">Sportarten</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="#">Mitglied werden</a>
+    <a href="#">Kontakt</a>
+  </nav>
+</header>
+<div class="hero">
+  <img src="img/bmx.jpg" alt="BMX und Fußball">
+  <div class="hero-content">
+    <h1>BMX Projekt</h1>
+    <p>Sport. Freundschaft. Zusammenhalt.</p>
+    <a href="#" class="cta">Jetzt Mitglied werden</a>
+  </div>
+</div>
+<main>
+  <div class="box">
+    <h2>Aktuelles</h2>
+    <ul>
+      <li>Saisonstart BMX Jugend: 18.03.2024</li>
+      <li>Sommerferien Event: 10.09.2024</li>
+      <li>Neue Termine veröffentlicht</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>Unsere Sportarten</h2>
+    <ul>
+      <li><b>BMX</b></li>
+      <li><b>Soccer</b></li>
+      <li><b>Tennis</b></li>
+      <li><b>Weitere Veranstaltungen</b></li>
+    </ul>
+  </div>
+  <div class="box">
+    <button onclick="window.location.href='ueber-uns.html'" class="about-btn">
+      <img src="img/about-img.jpg" alt="BMX Bild" class="about-img">
+      <h2>Über uns</h2>
+    </button>
+  </div>
+</main>
+<footer>
+  © 2024 BMX Projekt · Datenschutzerklärung · Impressum
+</footer>
+<script>
+  document.getElementById('closeContact').onclick = function() {
+    document.getElementById('contactPanel').classList.add('closed');
+    document.getElementById('openContact').classList.add('show');
+  };
+  document.getElementById('openContact').onclick = function() {
+    document.getElementById('contactPanel').classList.remove('closed');
+    document.getElementById('openContact').classList.remove('show');
+  };
+</script>
+</body>
+</html>
