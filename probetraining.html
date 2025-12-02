@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Probetraining – BMX Projekt</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Kontaktpanel etc. wie in index.html -->
+<header role="banner">
+  <div class="logo">
+    <span>BMX Projekt</span>
+  </div>
+  <nav role="navigation" aria-label="Hauptnavigation">
+    <a href="index.html">Start</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="probetraining.html">Probetraining</a>
+    <a href="mitglied.html">Mitglied werden</a>
+  </nav>
+  <button class="dark-btn" id="toggleMode" aria-label="Dark Mode umschalten">☾</button>
+</header>
+<main>
+  <section class="about-section">
+    <h1>Probetraining Anmeldung</h1>
+    <div class="card">
+      <h2>Teste BMX – Jetzt zum Probetraining anmelden!</h2>
+      <form action="mailto:info@bmxprojekt.de" method="post" enctype="text/plain">
+        <label for="name">Name des Kindes:</label><br>
+        <input id="name" name="Name des Kindes" required style="width:95%"><br>
+        <label for="alter">Alter:</label><br>
+        <input id="alter" name="Alter" required style="width:95%"><br>
+        <label for="email">E-Mail der Eltern:</label><br>
+        <input id="email" type="email" name="E-Mail" required style="width:95%"><br>
+        <label for="telefon">Telefonnummer:</label><br>
+        <input id="telefon" type="tel" name="Telefon" style="width:95%"><br>
+        <label for="nachricht">Nachricht/Wunsch-Termin:</label><br>
+        <textarea id="nachricht" name="Nachricht" rows="3" style="width:95%"></textarea><br><br>
+        <button type="submit" class="about-info-btn">Dokument an Vereinsmail senden</button>
+      </form>
+      <p>Alternativ kannst du deine Anfrage direkt an <a href="mailto:info@bmxprojekt.de">info@bmxprojekt.de</a> senden.</p>
+    </div>
+  </section>
+</main>
+<footer>
+  © 2024 BMX Projekt · <a href="datenschutz.html">Datenschutzerklärung</a> · <a href="impressum.html">Impressum</a>
+</footer>
+<div class="accessbar" aria-label="Barrierefreiheits-Einstellungen">
+  <button class="access-btn" id="fontDefault" aria-label="Standard-Schriftgröße">A</button>
+  <button class="access-btn" id="fontLarge" aria-label="Große Schrift">A+</button>
+  <button class="access-btn" id="fontXLarge" aria-label="Sehr große Schrift">A++</button>
+</div>
+<script>
+  // ...scripte wie gehabt
+</script>
+</body>
+</html>

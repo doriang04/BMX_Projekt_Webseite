@@ -15,17 +15,15 @@
   <p><strong>Adresse:</strong> Musterstraße 1, 12345 BMX-Stadt</p>
 </div>
 <button id="openContact" class="open-contact-btn show" aria-label="Kontaktfenster öffnen">&#9993;</button>
-
 <header role="banner">
   <div class="logo">
     <span>BMX Projekt</span>
   </div>
   <nav role="navigation" aria-label="Hauptnavigation">
     <a href="index.html" tabindex="0">Start</a>
-    <a href="#" tabindex="0">Sportarten</a>
     <a href="ueber-uns.html" tabindex="0">Über uns</a>
-    <a href="#" tabindex="0">Mitglied werden</a>
-    <a href="#" tabindex="0">Kontakt</a>
+    <a href="probetraining.html" tabindex="0">Probetraining</a>
+    <a href="mitglied.html" tabindex="0">Mitglied werden</a>
   </nav>
   <button class="dark-btn" id="toggleMode" aria-label="Dark Mode umschalten">☾</button>
 </header>
@@ -101,7 +99,8 @@
   </div>
 </main>
 <footer>
-  © 2024 BMX Projekt · Datenschutzerklärung · Impressum
+  © 2024 BMX Projekt · <a href="datenschutz.html" tabindex="0" aria-label="Datenschutzerklärung ansehen">Datenschutzerklärung</a> ·
+  <a href="impressum.html" tabindex="0" aria-label="Impressum ansehen">Impressum</a>
 </footer>
 <div class="accessbar" aria-label="Barrierefreiheits-Einstellungen">
   <button class="access-btn" id="fontDefault" aria-label="Standard-Schriftgröße">A</button>
@@ -109,7 +108,6 @@
   <button class="access-btn" id="fontXLarge" aria-label="Sehr große Schrift">A++</button>
 </div>
 <script>
-  // Kontaktpanel
   document.getElementById('closeContact').onclick = function() {
     document.getElementById('contactPanel').classList.add('closed');
     document.getElementById('openContact').classList.add('show');
@@ -118,11 +116,9 @@
     document.getElementById('contactPanel').classList.remove('closed');
     document.getElementById('openContact').classList.remove('show');
   };
-  // Toggle Darkmode
   document.getElementById('toggleMode').onclick = function() {
     document.body.classList.toggle('dark-mode');
   };
-  // Barrierefrei (Fontgröße)
   document.getElementById('fontDefault').onclick = function() {
     document.body.classList.remove('access-large','access-xlarge');
   };

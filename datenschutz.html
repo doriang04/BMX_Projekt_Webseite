@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutzerklärung – BMX Projekt</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="contact-sidepanel closed" id="contactPanel">
+  <span class="close-contact" id="closeContact" aria-label="Kontaktfenster schließen" tabindex="0">&times;</span>
+  <h3>Kontakt BMX Projekt</h3>
+  <p><strong>E-Mail:</strong> kontakt@bmxprojekt.de</p>
+  <p><strong>Telefon:</strong> 01234 / 567890</p>
+  <p><strong>Adresse:</strong> Musterstraße 1, 12345 BMX-Stadt</p>
+</div>
+<button id="openContact" class="open-contact-btn show" aria-label="Kontaktfenster öffnen">&#9993;</button>
+<header role="banner">
+  <div class="logo">
+    <span>BMX Projekt</span>
+  </div>
+  <nav role="navigation" aria-label="Hauptnavigation">
+    <a href="index.html" tabindex="0">Start</a>
+    <a href="ueber-uns.html" tabindex="0">Über uns</a>
+    <a href="#" tabindex="0">Mitglied werden</a>
+    <a href="#" tabindex="0">Kontakt</a>
+  </nav>
+  <button class="dark-btn" id="toggleMode" aria-label="Dark Mode umschalten">☾</button>
+</header>
+<main>
+  <section class="about-section" aria-labelledby="datenschutz-headline">
+    <h1 id="datenschutz-headline">Datenschutzerklärung</h1>
+    <div class="card">
+      <h2>Allgemeine Hinweise</h2>
+      <p>
+        Der Schutz Ihrer persönlichen Daten ist uns sehr wichtig. Personenbezogene Daten werden auf dieser Website nur im technisch notwendigen Umfang erhoben. Die nachfolgenden Hinweise geben Ihnen einen Überblick, wie wir diesen Schutz gewährleisten und welche Art von Daten zu welchem Zweck erhoben werden.
+      </p>
+    </div>
+    <div class="card">
+      <h2>Verantwortliche Stelle</h2>
+      <p>
+        BMX Projekt e.V.<br>
+        Uckermarkstraße 50, 15366 Hoppegarten OT Birkenstein<br>
+        <a href="mailto:info@bmxprojekt.de" tabindex="0">info@bmxprojekt.de</a>
+      </p>
+    </div>
+    <div class="card">
+      <h2>Erhebung und Verarbeitung personenbezogener Daten</h2>
+      <p>
+        Bei jedem Zugriff auf unsere Internetseiten und jedem Abruf einer Datei werden über diesen Vorgang Daten anonymisiert gespeichert. Dies erfolgt ausschließlich zu internen systembezogenen und statistischen Zwecken.
+        <br><br>
+        Personenbezogene Daten werden nur erfasst, wenn Sie diese Angaben freiwillig, etwa im Rahmen einer Anfrage per E-Mail, machen.
+      </p>
+    </div>
+    <div class="card">
+      <h2>Nutzung und Weitergabe personenbezogener Daten</h2>
+      <p>
+        Die von Ihnen zur Verfügung gestellten personenbezogenen Daten verwenden wir ausschließlich zur Beantwortung Ihrer Anfragen, zur Abwicklung mit Ihnen geschlossener Verträge und für die technische Administration. Eine Weitergabe an Dritte erfolgt nicht ohne Ihre ausdrückliche Einwilligung.
+      </p>
+    </div>
+    <div class="card">
+      <h2>Cookies</h2>
+      <p>
+        Unsere Webseite verwendet keine Tracking-Cookies oder Drittanbieter-Cookies. Sitzungs-Cookies werden nur verwendet, wenn sie für die Funktionsweise der Seite notwendig sind.
+      </p>
+    </div>
+    <div class="card">
+      <h2>Auskunftsrecht</h2>
+      <p>
+        Sie haben jederzeit das Recht auf Auskunft über die bezüglich Ihrer Person gespeicherten Daten, deren Herkunft und Empfänger sowie den Zweck der Speicherung. Kontaktieren Sie uns dazu per E-Mail: <a href="mailto:info@bmxprojekt.de">info@bmxprojekt.de</a>
+      </p>
+    </div>
+    <div class="card">
+      <h2>Hinweis zur Datenübertragung im Internet</h2>
+      <p>
+        Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
+      </p>
+    </div>
+  </section>
+</main>
+<footer>
+  © 2024 BMX Projekt · <a href="datenschutz.html" tabindex="0" aria-label="Datenschutzerklärung ansehen">Datenschutzerklärung</a> ·
+  <a href="impressum.html" tabindex="0" aria-label="Impressum ansehen">Impressum</a>
+</footer>
+<div class="accessbar" aria-label="Barrierefreiheits-Einstellungen">
+  <button class="access-btn" id="fontDefault" aria-label="Standard-Schriftgröße">A</button>
+  <button class="access-btn" id="fontLarge" aria-label="Große Schrift">A+</button>
+  <button class="access-btn" id="fontXLarge" aria-label="Sehr große Schrift">A++</button>
+</div>
+<script>
+  document.getElementById('closeContact').onclick = function() {
+    document.getElementById('contactPanel').classList.add('closed');
+    document.getElementById('openContact').classList.add('show');
+  };
+  document.getElementById('openContact').onclick = function() {
+    document.getElementById('contactPanel').classList.remove('closed');
+    document.getElementById('openContact').classList.remove('show');
+  };
+  document.getElementById('toggleMode').onclick = function() {
+    document.body.classList.toggle('dark-mode');
+  };
+  document.getElementById('fontDefault').onclick = function() {
+    document.body.classList.remove('access-large','access-xlarge');
+  };
+  document.getElementById('fontLarge').onclick = function() {
+    document.body.classList.add('access-large');
+    document.body.classList.remove('access-xlarge');
+  };
+  document.getElementById('fontXLarge').onclick = function() {
+    document.body.classList.remove('access-large');
+    document.body.classList.add('access-xlarge');
+  };
+</script>
+</body>
+</html>

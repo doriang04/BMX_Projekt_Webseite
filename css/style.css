@@ -9,6 +9,8 @@ body.dark-mode {
   background: #181a1b;
   color: #eaeaea;
 }
+
+/* Sticky Header */
 header {
   background: #fff;
   padding: 0 5vw;
@@ -29,30 +31,22 @@ body.dark-mode header {
   font-size: 1.4em;
   letter-spacing: 2px;
   padding: 12px 0;
-  display: flex;
-  align-items: center;
-  gap: 1em;
-}
-.logo-img {
-  height: 50px;
-  width: auto;
-  object-fit: contain;
 }
 nav {
   margin-left: auto;
+  display: flex;
+  gap: 2vw;
 }
 nav[role="navigation"] a {
   text-decoration: none;
   color: #FFD200;
   font-weight: bold;
-  margin-left: 2vw;
   font-size: 1em;
   transition: color 0.18s;
   outline: none;
+  padding: 5px 0;
 }
-body.dark-mode nav a {
-  color: #dcc600;
-}
+body.dark-mode nav a { color: #dcc600; }
 nav a:focus, .about-info-btn:focus, .open-contact-btn:focus, .close-contact:focus, .dark-btn:focus, .access-btn:focus {
   outline: 2px solid #FFD200;
   outline-offset: 1px;
@@ -62,15 +56,13 @@ nav a:hover { color: #ad9604; }
 .hero {
   background: #222;
   position: relative;
-  height: 360px;
+  height: 62vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
-body.dark-mode .hero {
-  background: #181a1b;
-}
+body.dark-mode .hero { background: #181a1b; }
 .hero img {
   width: 100%;
   height: 100%;
@@ -85,39 +77,30 @@ body.dark-mode .hero {
   text-align: center;
   color: #fff;
 }
-.hero-content h1 {
-  font-size: 2.8em;
-  font-weight: bold;
-  margin: 0 0 0.2em 0;
-}
-.hero-content p {
-  font-size: 1.3em;
-  margin-bottom: 1em;
-}
+.hero-content h1 { font-size: 2.2em; font-weight: bold; margin: 0 0 0.2em 0;}
+.hero-content p { font-size: 1.1em; margin-bottom: 1em; }
 .hero-content .cta {
   background: #FFD200;
   color: #222;
-  padding: 12px 26px;
+  padding: 14px 30px;
   border: none;
   font-weight: bold;
-  font-size: 1em;
-  border-radius: 3px;
+  font-size: 1.1em;
+  border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
+  margin-bottom: 0.7em;
 }
-body.dark-mode .hero-content .cta {
-  background: #dcc600;
-  color: #181a1b;
-}
+body.dark-mode .hero-content .cta { background: #dcc600; color: #181a1b;}
 .dark-btn, .access-btn {
   background: #FFD200;
   color: #222;
-  border-radius: 3px;
+  border-radius: 5px;
   border: none;
-  font-size: 1.13em;
+  font-size: 1.2em;
   font-weight: bold;
   cursor: pointer;
-  padding: 7px 22px;
+  padding: 10px 24px;
   margin-left: 1vw;
   transition: background 0.2s;
 }
@@ -133,8 +116,7 @@ body.dark-mode .dark-btn, body.dark-mode .access-btn {
   display: flex;
   gap: 16px;
 }
-.access-btn { font-size: 1.08em; }
-
+.access-btn { font-size: 1.15em; }
 main {
   display: flex;
   flex-wrap: wrap;
@@ -150,28 +132,23 @@ body.dark-mode main { background: #202124; }
   flex: 1 1 300px;
   min-width: 260px;
   padding: 1.4em;
+  margin-bottom: 2em;
 }
 body.dark-mode .box {
   background: #1a1a1a;
   color: #FFD200;
 }
-.box h2 {
-  color: #FFD200;
-  margin-top: 0;
-  font-size: 1.3em;
-}
+.box h2 { color: #FFD200; margin-top: 0; font-size: 1.2em; }
 body.dark-mode .box h2 { color: #dcc600; }
-.box ul {
-  padding-left: 18px;
-  margin: 0.7em 0 0 0;
-}
+.box ul { padding-left: 18px; margin: 0.7em 0 0 0; }
 .about-img {
   width: 100%;
   height: 120px;
   object-fit: cover;
   border-radius: 6px;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.7em;
 }
+
 /* Über uns Button */
 .about-btn {
   background: none;
@@ -181,11 +158,10 @@ body.dark-mode .box h2 { color: #dcc600; }
   cursor: pointer;
   text-align: left;
 }
-.about-btn:hover {
-  background: #FFD20015;
-  border-radius: 7px;
-}
-/* Cards für Über uns Seite */
+
+.about-btn:hover { background: #FFD20015; border-radius: 7px; }
+
+/* Cards für Info-Seiten */
 .about-section {
   max-width: 820px;
   margin: 32px auto;
@@ -206,22 +182,12 @@ body.dark-mode .about-section {
   padding: 1.7em 2em 1.2em 2em;
   transition: box-shadow 0.2s, background 0.2s, color 0.2s;
   position: relative;
-  opacity: 0;
-  transform: translateY(60px);
 }
 body.dark-mode .card {
   background: #1a1b1c;
   color: #FFD200;
 }
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.card h2 {
-  color: #FFD200;
-  margin-top: 0;
-  font-size: 1.22em;
-}
+.card h2 { color: #FFD200; margin-top: 0; font-size: 1.13em; }
 body.dark-mode .card h2 { color: #dcc600; }
 .card-image {
   width: 100%;
@@ -232,6 +198,7 @@ body.dark-mode .card h2 { color: #dcc600; }
   margin-bottom: 1em;
   box-shadow: 0 1px 8px rgba(0,0,0,0.09);
 }
+/* Individuelle Card-Stile */
 .card-idee { border-left: 7px solid #FFD200; }
 body.dark-mode .card-idee { border-left: 7px solid #dcc600; }
 .card-motto blockquote {
@@ -268,18 +235,21 @@ body.dark-mode .flyer-hinweis {
   display: flex;
   gap: 20px;
   margin-top: 1.6em;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .about-info-btn {
   background: #FFD200;
   color: #222;
   font-weight: bold;
   border-radius: 5px;
-  padding: 10px 24px;
+  padding: 12px 28px;
   text-decoration: none;
   border: none;
   font-size: 1em;
   box-shadow: 1px 2px 8px rgba(0,0,0,0.07);
   transition: background 0.2s, color 0.2s;
+  margin-bottom: 10px;
 }
 body.dark-mode .about-info-btn {
   background: #dcc600;
@@ -288,38 +258,21 @@ body.dark-mode .about-info-btn {
 .about-info-btn:hover {
   background: #e6c801;
 }
+
+/* Footer und Kontaktpanel */
 footer {
   background: #FFD200;
   color: #222;
   text-align: center;
-  padding: 1.2em 0;
+  padding: 1em 0;
   font-size: 0.95em;
-  position: relative;
 }
+footer a { color: #222; text-decoration: underline;}
 body.dark-mode footer {
   background: #dcc600;
   color: #181a1b;
 }
-.social-links {
-  position: absolute;
-  left: 2em;
-  bottom: 1.2em;
-  display: flex;
-  gap: 1.2em;
-}
-.social-links a {
-  color: #222;
-  font-size: 1.8em;
-  text-decoration: none;
-  transition: transform 0.2s;
-}
-body.dark-mode .social-links a {
-  color: #181a1b;
-}
-.social-links a:hover {
-  transform: scale(1.15);
-}
-/* Kontakt-Seitenpanel rechts */
+body.dark-mode footer a { color:#181a1b; }
 .contact-sidepanel {
   position: fixed;
   top: 80px;
@@ -338,16 +291,9 @@ body.dark-mode .contact-sidepanel {
   background: #1a1a1a;
   color: #FFD200;
 }
-.contact-sidepanel h3 {
-  margin-top: 0;
-  color: #FFD200;
-  font-size: 1.25em;
-}
+.contact-sidepanel h3 { margin-top: 0; color: #FFD200; font-size: 1.25em; }
 body.dark-mode .contact-sidepanel h3 { color: #dcc600; }
-.contact-sidepanel p {
-  margin: 0.8em 0;
-  font-size: 1em;
-}
+.contact-sidepanel p { margin: 0.8em 0; font-size: 1em; }
 .contact-sidepanel .close-contact {
   position: absolute;
   top: 12px;
@@ -380,45 +326,50 @@ body.dark-mode .contact-sidepanel .close-contact { color: #dcc600; }
   cursor: pointer;
   display: none;
 }
+
 body.dark-mode .open-contact-btn { background: #dcc600; color: #181a1b;}
-.open-contact-btn.show {
-  display: block;
-}
+.open-contact-btn.show { display: block; }
+
 /* Barrierefreiheit: Fokusringe & Schriftgröße */
 *:focus {
   outline: 2px solid #FFD200 !important;
   outline-offset: 2px;
 }
-body.access-large {
-  font-size: 1.24em;
+body.access-large { font-size: 1.24em; }
+body.access-xlarge { font-size: 1.36em; }
+
+/* Tablet/Smartphone Optimierung */
+@media (max-width: 1020px) {
+  header { flex-direction: column; align-items: flex-start; padding: 0 2vw;}
+  nav { width: 100%; justify-content: flex-start; flex-wrap: wrap; gap: 1vw; margin-left: 0; }
+  nav a { font-size: 1.12em; margin-left: 0; margin-right:1vw;}
 }
-body.access-xlarge {
-  font-size: 1.36em;
-}
-/* Responsiv */
 @media (max-width: 900px) {
   .about-section { padding: 1em 0.5em; }
   .card { padding: 1.1em 1em 0.9em 1em; }
   .card-image { max-width: 100%; }
-  .social-links {
-    position: static;
-    justify-content: center;
-    margin-bottom: 0.8em;
-  }
 }
 @media (max-width: 800px) {
   main {
     flex-direction: column;
+    padding: 3vw 2vw;
+    gap: 0;
   }
+  .box { min-width: unset; margin-bottom: 2em;}
   .contact-sidepanel {
     width: 90vw;
     top: 64px;
     font-size: 0.9em;
   }
-  .about-section {
-    padding: 1.1em 1em;
-  }
-  .logo-img {
-    height: 40px;
-  }
+  .about-section { padding: 1.1em 0.5em; }
+  .card { padding: 1.1em 0.5em 0.9em 0.5em; }
+  nav { flex-direction: column; width: 100%; }
+  nav a { font-size: 1.15em; display: block; margin: 0.5em 0; }
+  .dark-btn, .access-btn { font-size: 1.2em; padding: 10px 24px; margin: 1vw 0 0 0;}
+}
+@media (max-width:600px) {
+  body, main, .about-section, .card { font-size: 1.01em !important;}
+  .about-section { margin: 8px auto;}
+  .card h2 { font-size: 1em;}
+  .card { margin: 0.7em 0; }
 }
