@@ -110,6 +110,22 @@
     document.body.classList.remove('access-large');
     document.body.classList.add('access-xlarge');
   };
+  // Beim Laden prüfen, ob Darkmode in dieser Sitzung aktiv war
+  window.addEventListener('DOMContentLoaded', function () {
+    const isDark = sessionStorage.getItem('darkMode') === 'true';
+    if (isDark) {
+      document.body.classList.add('dark-mode');
+    }
+
+    const btn = document.getElementById('toggleMode');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        const active = document.body.classList.contains('dark-mode');
+        sessionStorage.setItem('darkMode', active);
+      });
+    }
+  });
 </script>
 </body>
 </html>

@@ -17,8 +17,8 @@
 </div>
 <button id="openContact" class="open-contact-btn show" aria-label="Kontaktfenster öffnen">&#9993;</button>
 <header role="banner">
-  <div class="logo">
-    <span>BMX Projekt</span>
+  <div class="logo-wrapper">
+    <img src="LOGO_BMXProjekt_JPG.jpg" alt="BMX Projekt Logo" class="logo-img">
   </div>
   <nav role="navigation" aria-label="Hauptnavigation">
     <a href="index.html" tabindex="0">Start</a>
@@ -34,7 +34,7 @@
   <div class="hero-content">
     <h1>BMX Projekt</h1>
     <p>Sport. Freundschaft. Zusammenhalt.</p>
-    <a href="#" class="cta" tabindex="0">Jetzt Mitglied werden</a>
+    <a href="mitglied.html" class="cta" tabindex="0">Jetzt Mitglied werden</a>
   </div>
 </div>
 <main>
@@ -51,7 +51,7 @@
     <ul>
       <li><b>BMX Race</b></li>
       <li><b>BMX-Cruiser</b></li>
-      <li><b>MTB-Race</b></li>
+      <li><b>Pumptrack</b></li>
     </ul>
   </div>
   <div class="box">
@@ -79,10 +79,23 @@
     document.getElementById('contactPanel').classList.remove('closed');
     document.getElementById('openContact').classList.remove('show');
   };
-  // Toggle Darkmode
-  document.getElementById('toggleMode').onclick = function() {
-    document.body.classList.toggle('dark-mode');
-  };
+
+  // Beim Laden prüfen, ob Darkmode in dieser Sitzung aktiv war
+  window.addEventListener('DOMContentLoaded', function () {
+    const isDark = sessionStorage.getItem('darkMode') === 'true';
+    if (isDark) {
+      document.body.classList.add('dark-mode');
+    }
+
+    const btn = document.getElementById('toggleMode');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        const active = document.body.classList.contains('dark-mode');
+        sessionStorage.setItem('darkMode', active);
+      });
+    }
+  });
   // Barrierefrei (Fontgröße)
   document.getElementById('fontDefault').onclick = function() {
     document.body.classList.remove('access-large','access-xlarge');

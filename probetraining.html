@@ -7,7 +7,15 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<!-- Kontaktpanel etc. wie in index.html -->
+<!-- Kontaktpanel -->
+<div class="contact-sidepanel closed" id="contactPanel">
+  <span class="close-contact" id="closeContact" aria-label="Kontaktfenster schließen" tabindex="0">&times;</span>
+  <h3>Kontakt BMX Projekt</h3>
+  <p><strong>E-Mail:</strong> kontakt@bmxprojekt.de</p>
+  <p><strong>Telefon:</strong> 01234 / 567890</p>
+  <p><strong>Adresse:</strong> Musterstraße 1, 12345 BMX-Stadt</p>
+</div>
+<button id="openContact" class="open-contact-btn show" aria-label="Kontaktfenster öffnen">&#9993;</button>
 <header role="banner">
   <div class="logo">
     <span>BMX Projekt</span>
@@ -24,7 +32,7 @@
   <section class="about-section">
     <h1>Probetraining Anmeldung</h1>
     <div class="card">
-      <h2>Teste BMX – Jetzt zum Probetraining anmelden!</h2>
+      <h2>Teste BMX Race – Jetzt zum Probetraining anmelden!</h2>
       <form action="mailto:info@bmxprojekt.de" method="post" enctype="text/plain">
         <label for="name">Name des Kindes:</label><br>
         <input id="name" name="Name des Kindes" required style="width:95%"><br>
@@ -34,8 +42,11 @@
         <input id="email" type="email" name="E-Mail" required style="width:95%"><br>
         <label for="telefon">Telefonnummer:</label><br>
         <input id="telefon" type="tel" name="Telefon" style="width:95%"><br>
-        <label for="nachricht">Nachricht/Wunsch-Termin:</label><br>
-        <textarea id="nachricht" name="Nachricht" rows="3" style="width:95%"></textarea><br><br>
+        <label for="wunschtermin">Wunschtermin (immer mittwochs)</label><br>
+        <select id="wunschtermin" name="Wunschtermin" required style="width:95%">
+          <option value="">-- Bitte Mittwoch wählen --</option>
+        </select>
+        <small>Training ist von 16:30 bis 18:00.</small><br><br>
         <button type="submit" class="about-info-btn">Dokument an Vereinsmail senden</button>
       </form>
       <p>Alternativ kannst du deine Anfrage direkt an <a href="mailto:info@bmxprojekt.de">info@bmxprojekt.de</a> senden.</p>
@@ -51,7 +62,71 @@
   <button class="access-btn" id="fontXLarge" aria-label="Sehr große Schrift">A++</button>
 </div>
 <script>
-  // ...scripte wie gehabt
+  // Beim Laden prüfen, ob Darkmode in dieser Sitzung aktiv war
+  window.addEventListener('DOMContentLoaded', function () {
+    const isDark = sessionStorage.getItem('darkMode') === 'true';
+    if (isDark) {
+      document.body.classList.add('dark-mode');
+    }
+
+    const btn = document.getElementById('toggleMode');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        const active = document.body.classList.contains('dark-mode');
+        sessionStorage.setItem('darkMode', active);
+      });
+    }
+  });
+  const toggleBtn = document.getElementById('toggleMode');
+  const body = document.body;
+
+  toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+  });
+  function getNextFourWednesdays() {
+    const today = new Date();
+    const wednesdays = [];
+    let d = new Date(today);
+
+    const day = d.getDay(); // 0=So,1=Mo,...,3=Mi
+    let diffToWed = (3 - day + 7) % 7;
+    if (diffToWed === 0) diffToWed = 7; // nicht mehr heute, sondern ab nächster Woche
+    d.setDate(d.getDate() + diffToWed);
+
+    for (let i = 0; i < 4; i++) {
+      const copy = new Date(d);
+      copy.setDate(d.getDate() + i * 7);
+      wednesdays.push(copy);
+    }
+    return wednesdays;
+  }
+
+  function formatDateDisplay(d) {
+    return d.toLocaleDateString('de-DE', {
+      weekday: 'long',
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    });
+  }
+
+  function formatDateValue(d) {
+    return d.toISOString().split('T')[0]; // z.B. 2025-12-16
+  }
+
+  const select = document.getElementById('wunschtermin');
+  const weds = getNextFourWednesdays();
+
+  weds.forEach(d => {
+    const opt = document.createElement('option');
+    opt.value = formatDateValue(d);
+    opt.textContent = formatDateDisplay(d);
+    select.appendChild(opt);
+  });
 </script>
+</body>
+</html>
+
 </body>
 </html>

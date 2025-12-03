@@ -7,7 +7,15 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<!-- Kontaktpanel etc. wie in index.html -->
+<!-- Kontaktpanel -->
+<div class="contact-sidepanel closed" id="contactPanel">
+  <span class="close-contact" id="closeContact" aria-label="Kontaktfenster schließen" tabindex="0">&times;</span>
+  <h3>Kontakt BMX Projekt</h3>
+  <p><strong>E-Mail:</strong> kontakt@bmxprojekt.de</p>
+  <p><strong>Telefon:</strong> 01234 / 567890</p>
+  <p><strong>Adresse:</strong> Musterstraße 1, 12345 BMX-Stadt</p>
+</div>
+<button id="openContact" class="open-contact-btn show" aria-label="Kontaktfenster öffnen">&#9993;</button>
 <header role="banner">
   <div class="logo">
     <span>BMX Projekt</span>
@@ -59,7 +67,22 @@
   <button class="access-btn" id="fontXLarge" aria-label="Sehr große Schrift">A++</button>
 </div>
 <script>
-  // ...scripte wie gehabt
+  // Beim Laden prüfen, ob Darkmode in dieser Sitzung aktiv war
+  window.addEventListener('DOMContentLoaded', function () {
+    const isDark = sessionStorage.getItem('darkMode') === 'true';
+    if (isDark) {
+      document.body.classList.add('dark-mode');
+    }
+
+    const btn = document.getElementById('toggleMode');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        document.body.classList.toggle('dark-mode');
+        const active = document.body.classList.contains('dark-mode');
+        sessionStorage.setItem('darkMode', active);
+      });
+    }
+  });
 </script>
 </body>
 </html>
